@@ -1,5 +1,9 @@
 #!/usr/bin/env node
 
+
+import { startHlsServer } from '../hls';
+startHlsServer('8283')
+
 /**
  * Module dependencies.
  */
@@ -13,7 +17,7 @@ const debug = debugLib('express-template:server');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '8282');
 app.set('port', port);
 
 /**
@@ -26,9 +30,12 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
+
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
+
+
 
 /**
  * Normalize a port into a number, string, or false.
